@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Section 3 Trade Examples | Polar Star Quantitative Commodity Fund Strategy Information</title>
+  <meta name="description" content="In this write up we give more information about the strategies we use." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Section 3 Trade Examples | Polar Star Quantitative Commodity Fund Strategy Information" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="In this write up we give more information about the strategies we use." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Section 3 Trade Examples | Polar Star Quantitative Commodity Fund Strategy Information" />
+  
+  <meta name="twitter:description" content="In this write up we give more information about the strategies we use." />
+  
+
+<meta name="author" content="Mauritz van den Worm" />
+
+
+<meta name="date" content="2020-08-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="strat-info.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PSQCF Strategy Information</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="strat-info.html"><a href="strat-info.html"><i class="fa fa-check"></i><b>2</b> Strategy Information</a><ul>
+<li class="chapter" data-level="2.1" data-path="strat-info.html"><a href="strat-info.html#curve-carry"><i class="fa fa-check"></i><b>2.1</b> Curve Carry</a></li>
+<li class="chapter" data-level="2.2" data-path="strat-info.html"><a href="strat-info.html#trend-following"><i class="fa fa-check"></i><b>2.2</b> Trend Following</a></li>
+<li class="chapter" data-level="2.3" data-path="strat-info.html"><a href="strat-info.html#remarks"><i class="fa fa-check"></i><b>2.3</b> Remarks</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="trade-examples.html"><a href="trade-examples.html"><i class="fa fa-check"></i><b>3</b> Trade Examples</a><ul>
+<li class="chapter" data-level="3.1" data-path="trade-examples.html"><a href="trade-examples.html#curve-carry-examples"><i class="fa fa-check"></i><b>3.1</b> Curve Carry Examples</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="trade-examples.html"><a href="trade-examples.html#winning-trade---lh"><i class="fa fa-check"></i><b>3.1.1</b> Winning Trade - LH</a></li>
+<li class="chapter" data-level="3.1.2" data-path="trade-examples.html"><a href="trade-examples.html#losing-trade---ko"><i class="fa fa-check"></i><b>3.1.2</b> Losing Trade - KO</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="trade-examples.html"><a href="trade-examples.html#trend-following-examples"><i class="fa fa-check"></i><b>3.2</b> Trend Following Examples</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="trade-examples.html"><a href="trade-examples.html#trend-following-commentary"><i class="fa fa-check"></i><b>3.2.1</b> Trend Following Commentary</a></li>
+<li class="chapter" data-level="3.2.2" data-path="trade-examples.html"><a href="trade-examples.html#winning-trade---pa"><i class="fa fa-check"></i><b>3.2.2</b> Winning Trade - PA</a></li>
+<li class="chapter" data-level="3.2.3" data-path="trade-examples.html"><a href="trade-examples.html#losing-trade---da"><i class="fa fa-check"></i><b>3.2.3</b> Losing Trade - DA</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="trade-examples.html"><a href="trade-examples.html#remarks-and-references"><i class="fa fa-check"></i><b>3.3</b> Remarks and References</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://www.polarstarfunds.com/" target="blank">Polar Star Funds</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Polar Star Quantitative Commodity Fund Strategy Information</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="trade_examples" class="section level1">
+<h1><span class="header-section-number">Section 3</span> Trade Examples</h1>
+<p>In this section we show some examples where each of the strategies had winning and losing trades.</p>
+<div id="curve-carry-examples" class="section level2">
+<h2><span class="header-section-number">3.1</span> Curve Carry Examples</h2>
+<p>The plot below shows the returns associated with each of the commodities inside the Curve Carry strategy. The results are presented on the same y-axis to make comparisons easier. From the image below it is clear that lean hogs (LH), natural gas (NG), refined sugar (QW), WTI crude (CL), RBOB gasoline (XB) and live cattle (LC) have had the greatest positive contributions to the performance of the strategy since inception. Negative performance on the other hand is dominated by Malaysian palm oil (KO) and cotton (CT).</p>
+<p><img src="strategy-information_files/figure-html/pnl-pic-1.png" width="672" /></p>
+<div id="winning-trade---lh" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> Winning Trade - LH</h3>
+<p>Lean hogs has been a solid return producer for the curve carry strategy since inception. The plot below highlights the cumulative performance contribution to the fund’s performance since its inception.</p>
+<p><img src="strategy-information_files/figure-html/lh-pnl-pic-1.png" width="672" /></p>
+<p>The plot below highlights the value of $1 invested in the near and far dated lean hog calendar spreads. Note that the results are shown on a logarithmic scale. The solid vertical line is set at 1 Jan 2019, the start of the quantitative commodity fund. Notice that both the near and far dated calendar spread performed tremendously well since the inception of the fund, but the results can also be extended back to the early 2000s</p>
+<p><img src="strategy-information_files/figure-html/lh-rolled-1.png" width="672" /></p>
+<p>There is an interesting fundamental reason for this curve behaviour in the lean hog market. The shorthand version is that the United States struggles to keep pace with the projected number of hogs that they want to slaughter. A hog farmer cannot feed her hogs beyond a certain weight because the economics of it does not make sense. When the hogs hit their respective slaughter weights they have to compete with other farmers’ hogs for space at pork processing and packing facilities. Here the processors and packers can choose the cheapest hogs and drive to front of the futures curve down creating the formation of contango heading into expiry. For more information please see <a href="https://polarstarmanagement.github.io/2020Q2/meats-and-livestock.html" target="_blank">this</a> link.</p>
+</div>
+<div id="losing-trade---ko" class="section level3">
+<h3><span class="header-section-number">3.1.2</span> Losing Trade - KO</h3>
+<p>Malaysian palm oil has been a choppy performer for the curve carry strategy since inception. The plot below highlights the cumulative performance contribution to the fund’s performance since its inception.</p>
+<p><img src="strategy-information_files/figure-html/ko-pnl-pic-1.png" width="672" /></p>
+<p>The plot below highlights the value of $1 invested in the near and far dated Malaysian palm oil calendar spreads. This is a commodity where we take both long and short calendar spread exposure, but it has proven difficult to trade successfully thus far.</p>
+<p><img src="strategy-information_files/figure-html/ko-rolled-1.png" width="672" /></p>
+</div>
+</div>
+<div id="trend-following-examples" class="section level2">
+<h2><span class="header-section-number">3.2</span> Trend Following Examples</h2>
+<p>The plot below shows the returns associated with each of the commodities inside the Trend Following Strategy. The performance of palladium (PA) is a good positive return to note. Strong negative performance can be seen in milk (DA) and rubber (OR).</p>
+<p><img src="strategy-information_files/figure-html/trend-pnl-pic-1.png" width="672" /></p>
+<div id="trend-following-commentary" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Trend Following Commentary</h3>
+<p>Recently there has been a collection of research trying to understand the underperformance of trend following strategies over the last decade. Some of the more interesting results are shown below:</p>
+<ul>
+<li><a href="https://www.aqr.com/Insights/Research/Journal-Article/You-Cant-Always-Trend-When-You-Want" target="_blank">You Can’t Always Trend When You Want - AQR</a></li>
+</ul>
+<p><img src="img/AQR_01.png" width="800" /></p>
+<p>The researchers at AQR produced an interesting piece where they studied trend following performance as a function of the absolute size of market moves. The plot above shows the main result. The last couple of years have been highlighted in yellow. Note that there have not been nearly as strong market moves compared to historical results.</p>
+<ul>
+<li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3594888" target="_blank">Breaking Bad Trends - Garg, Goulding, Harvey and Mazzoleni</a></li>
+</ul>
+<p>The above paper is quite interesting and looks at the trend following performance from a turning point of view. Intuitively, the more turning points we have in price series the lower the trend following return should be. This is mainly because of being whipsawed in and out of trades couples with trading costs and slippage. The plot below shows trend following performance as a function of the number of turning points. Notice the steady negative slope of the medians within the boxplots.</p>
+<p><img src="img/BBT_01.png" width="600" /></p>
+<p>The plot below shows the same results but represented in a slightly different way. Here we can see that the last couple of years have had many more turning points in the price series compared to historical data.</p>
+<p><img src="img/BBT_02.png" width="600" /></p>
+<p>The question is then if we will continue to see an environment consisting of weak trends coupled with many turning points? We are not sure and do not claim to know the answer. However, if we see behaviour more closely aligned to the type of trends we have seen in the past we can be sure that trend following systems will perform well. In the meantime, we are happy to wait it out.</p>
+</div>
+<div id="winning-trade---pa" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Winning Trade - PA</h3>
+<p>During 2019 the palladium trade was one where many trend following strategies would have been involved. In the facet plot below we show the cumulative return from the trade, the forecast values as well as the roll adjusted price. We had long positions where the forecasted numbers were roughly greater than 5. As the signal strength increased we added to the position. We exited from the long palladium trade during Feb/Mar 2020.</p>
+<p><img src="strategy-information_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="losing-trade---da" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> Losing Trade - DA</h3>
+<p>We only added milk to the trend following portfolio during Jan 2020. The main reason for the late addition was that it is not a commodity the team has traded in the past from a fundamental or relative value perspective. Our test showed that the addition of milk will add some diversification benefits to the portfolio. The results below show the cumulative return, aggregate scaled forecast and roll adjusted price of milk since its inception of the fund. Note that we also include those times where milk was not included in the portfolio.</p>
+<p><img src="strategy-information_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>Milk was in a sustained uptrend from May 2019 through Dec 2019 before it started on a downward path before recouping in May. These price swings were too fast for our model to successfully capitalise on. We remain positive that the milk market will add additional diversification benefits to our trend following model.</p>
+<p>There are some interesting dynamics taking place in the dairy markets because of supply chain disruptions caused by the global coronavirus crisis. <a href="https://www.youtube.com/watch?v=MODobm9mWIk&t=275s" target="_blank">Here</a> is a link to an interesting video by Vox explaining the problem in some detail.</p>
+</div>
+</div>
+<div id="remarks-and-references" class="section level2">
+<h2><span class="header-section-number">3.3</span> Remarks and References</h2>
+<p>Below we list a couple reference highlighting the benefits of adding trend and carry type strategies in a combined portfolio.</p>
+<ul>
+<li><a href="https://jai.pm-research.com/content/early/2020/08/01/jai.2020.1.106" target="_blank">Carry and Time-Series Momentum: A Match Made in Heaven</a></li>
+<li><a href="https://jpm.pm-research.com/content/41/4/82" target="_blank">Carry and Trend in Lots of Places - Bhansali, Davis, Dorsten and Rennison</a></li>
+<li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1127213" target="_blank">Tactical allocation in commodity futures markets: Combining momentum and term structure signals - Fuertes, Miffre and Rallis</a></li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="strat-info.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["strategy-information.pdf", "strategy-information.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
