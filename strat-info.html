@@ -24,7 +24,7 @@
 <meta name="author" content="Mauritz van den Worm" />
 
 
-<meta name="date" content="2020-08-13" />
+<meta name="date" content="2020-08-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -561,8 +561,7 @@ Soft Commodities
 </tr>
 </tbody>
 </table>
-<p>The Curve Carry strategy tries to harness predictable and repeatable calendar spread dynamics in a universe of commodities given in the table below.</p>
-<p>During each month and for all of the commodities shown we have identified calendar spreads that have repeatable behaviour year after year. In the majority of cases, we make a profit from the curve carry strategy by taking a bet that the shape of the commodity futures curve will become more contango or remain unchanged going into expiry of the near dated contract. This phenomenon of increasing contango is especially common in commodities that have a storage component associated in their const structures. Commodity futures curves are divided by obstacles to intertemporal arbitrage. The costlier the storage, the greater is the division and the variability of carry. The segmented commodity futures curve is shaped by four factors:</p>
+<p>During each month and for all the commodities shown we have identified calendar spreads that have repeatable behaviour year after year. In most cases, we make a profit from the curve carry strategy by taking a bet that the shape of the commodity futures curve will become more contango or remain unchanged going into expiry of the near dated contract. This phenomenon of increasing contango is especially common in commodities that have a storage component associated in their cost structures. Commodity futures curves are divided by obstacles to intertemporal arbitrage. The costlier the storage, the greater is the division and the variability of carry. The segmented commodity futures curve is shaped by four factors:</p>
 <ul>
 <li>Funding and storage costs,</li>
 <li>Expected supply and demand imbalanced,</li>
@@ -570,10 +569,10 @@ Soft Commodities
 <li>Hedging pressure.</li>
 </ul>
 <p>Under normal conditions, commodity producers take short futures positions in the deferred parts of the commodity futures curve to hedge against price drops. The investor or speculator that offers this insurance is paid a premium and takes a long position in the futures contract. This positive premium comes in the form of the carry premium. On the other hand, commodity consumers take long futures positions in nearer dated contracts to hedge against unexpected future price surges. The investor or speculator that offers this insurance receives a premium for taking up the risk and takes a short position, in which case contango arises.</p>
-<p>In the plot below we show the cumulative returns from short near and far dated calendar spreads in the commodities shown. To be clear, short spread implies a short position in the near dated contract and a long position in the far dated contract. For every commodity and spread tenure, we use the ETF-trick to show the value of a $1 investment at the start of the time-series. If the value of the investment increases it implies the spread became more contango. If it decreases the spread became more backwardated. The plot below gives a bird’s eye view of these return streams. Some of the series are choppy such as those of DF and JO, while others are smooth and almost linear. Most of the curve carry returns are positive over the long run but there are a couple of exceptions, the most prominent one being QW.</p>
+<p>In the plot below we show the cumulative returns from short near and far dated calendar spreads in the commodities shown. To be clear, short spread implies a short position in the near dated contract and a long position in the far dated contract. For every commodity and spread tenure, we use the ETF-trick to show the value of a $1 investment at the start of the time-series. If the value of the investment increases, it implies the spread became more contango. If it decreases the spread became more backwardated. The plot below gives a bird’s eye view of these return streams. Some of the series are choppy such as those of DF and JO, while others are smooth and almost linear. Most of the curve carry returns are positive over the long run but there are a couple of exceptions, the most prominent one being QW.</p>
 <p><img src="strategy-information_files/figure-html/rolled-pic-1.png" width="960" /></p>
 <p>Similar to the way a trend following portfolio is constructed by scaling the different return series for volatility and taking the global correlation structure into account we perform a bootstrapping procedure to determine baseline weights for the different commodity calendar spread pairs from month to month. The last piece of the system is the risk management of the strategy which is performed using meta-labeling.</p>
-<p>Meta-labeling is a machine learning technique used to determine the probability that a particular trade will be in the money. It consists of a binary classification algorithm for each commodity-calendar-spread pair that takes a collection of time-series features as input parameters. For our purposes, we make use of Scikit Learn’s Random Forest classifier algorithm. For a detailed discussion on how to label time series data for use in machine learning applications, the work of <a href="https://www.amazon.com/Advances-Financial-Machine-Learning-Marcos/dp/1119482089" target="_blank">Marcos Lopez de Prado</a> is invaluable. Finally, we make use of the probability of the trade to be in the money to scale the positions within the portfolio. If a calendar looses 50 bps we close half the positions, another 25 bps and we close out the remaining spreads.</p>
+<p>Meta-labelling is a machine learning technique used to determine the probability that a trade will be in the money. It consists of a binary classification algorithm for each commodity-calendar-spread pair that takes a collection of time-series features as input parameters. For our purposes, we make use of Scikit Learn’s Random Forest classifier algorithm. For a detailed discussion on how to label time series data for use in machine learning applications, the work of <a href="https://www.amazon.com/Advances-Financial-Machine-Learning-Marcos/dp/1119482089" target="_blank">Marcos Lopez de Prado</a> is invaluable. Finally, we make use of the probability of the trade to be in the money to scale the positions within the portfolio. If a calendar loses 50 bps we close half the positions, another 25 bps and we close out the remaining spreads.</p>
 <p>Below we show the step-by-step process involved in the strategy:</p>
 <ol style="list-style-type: decimal">
 <li>At the beginning of the month determine the full fund NAV.</li>
@@ -582,16 +581,16 @@ Soft Commodities
 <li>Calculate roll adjusted time-series.</li>
 <li>Use the returns from roll adjusted time-series to determine ETF prices of the near and far dated calendar spreads for each commodity.</li>
 <li>Make use of bootstrapping process to determine baseline instrument weights.</li>
-<li>Calculate a collection of time-series features for use in meta-labeling.</li>
+<li>Calculate a collection of time-series features for use in meta-labelling.</li>
 <li>Fractionally differentiate input features to ensure stationarity.</li>
 <li>Train meta-label models - quarterly.</li>
 <li>Apply meta-label models to each of the commodity-calendar-spread pairs to determine the probability of profit.</li>
-<li>Scale baseline weights according to meta-labeling output.</li>
+<li>Scale baseline weights according to meta-labelling output.</li>
 <li>Create orderbook of target number of contracts.</li>
 <li>Roll half of the portfolio forward on business day 2 - <em>We make use of EMSX to route trades through Bloomberg to our traders at SocGen.</em></li>
 <li>Finish the roll forward on business day 3.</li>
 </ol>
-<p>As the NAV of the fund grows we will split the allocation to the Curve Carry Strategy in buckets and treat eat bucket as a separate strategy with a different roll timing methodology. On the first split, we will add a roll on business days 10 and 11. The main reason for this is to avoid rebalance timing luck as much as possible. With limited AUM this is not currently feasible.</p>
+<p>As the NAV of the fund grows, we will split the allocation to the Curve Carry Strategy in buckets and treat eat bucket as a separate strategy with a different roll timing methodology. On the first split, we will add a roll on business days 10 and 11. The main reason for this is to avoid rebalance timing luck as much as possible. With limited AUM this is not currently feasible.</p>
 </div>
 <div id="trend-following" class="section level2">
 <h2><span class="header-section-number">2.2</span> Trend Following</h2>
